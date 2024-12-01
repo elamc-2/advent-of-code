@@ -19,7 +19,7 @@ type Node struct {
 var root Node
 
 func parse() ([]string, error) {
-	input, err := os.ReadFile("input.txt")
+	input, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		log.Fatal("reading file", err)
 	}
@@ -31,7 +31,7 @@ func parse() ([]string, error) {
 
 func toTree(data []string) {
 	root = Node{
-		label:    "/",
+		label: "/",
 	}
 	current := &root
 
@@ -39,8 +39,8 @@ func toTree(data []string) {
 		switch {
 		case strings.Contains(v, "dir"):
 			current.children = append(current.children, &Node{
-				label:    strings.Split(v, " ")[1],
-				parent:   current,
+				label:  strings.Split(v, " ")[1],
+				parent: current,
 			})
 		case strings.Contains(v, "$"):
 			if strings.Contains(v, "cd") {

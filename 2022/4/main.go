@@ -9,7 +9,7 @@ import (
 )
 
 func parse() ([][]string, error) {
-	input, err := os.ReadFile("input.txt")
+	input, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		log.Fatal("reading file", err)
 	}

@@ -8,7 +8,7 @@ import (
 )
 
 func parse() ([][]string, error) {
-	input, err := os.ReadFile("input.txt")
+	input, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		log.Fatal("reading file", err)
 	}
@@ -21,6 +21,7 @@ func parse() ([][]string, error) {
 }
 
 type Hand int
+
 const (
 	Rock     Hand = 1
 	Paper    Hand = 2
@@ -28,6 +29,7 @@ const (
 )
 
 type Result int
+
 const (
 	Lose Result = 0
 	Draw Result = 3
